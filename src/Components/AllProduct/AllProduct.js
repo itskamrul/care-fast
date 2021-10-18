@@ -7,10 +7,10 @@ const AllProduct = () => {
   const products = useProduct();
   return (
     <div className="container">
-      <h1 className="fw-bold mt-3 mb-4">All Product</h1>
+      <h1 className="fw-bold mt-3 mb-4">All Fitness materials</h1>
 
       <div>
-        <Row xs={1} sm={2} md={3} lg={4} className="g-4 bg-white">
+        <Row xs={1} sm={2} md={3} lg={4} className="g-4 bg-white rounded-3">
           {products.map(product => (
             <Product product={product}></Product>
           ))}

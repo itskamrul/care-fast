@@ -7,6 +7,7 @@
 .navbar-container a {
   color: #fff;
   font-weight: bold;
+  text-decoration: none;
 }
 .button {
   background-color: #fff;

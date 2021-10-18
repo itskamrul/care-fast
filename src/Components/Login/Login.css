@@ -1,0 +1,31 @@
+.login-container {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 60px;
+  margin-bottom: 100px;
+}
+.login-icon {
+  font-size: 2rem;
+  padding: 20px;
+  color: #fff;
+  background-color: #32aeb1;
+  border-radius: 75px;
+}
+.login-title {
+  color: #32aeb1;
+}
+.input-box {
+  margin-bottom: 10px;
+  border: none;
+  background-color: #f3f7fb;
+}
+.login-btn {
+  color: #fff;
+  background-color: #32aeb1;
+  padding-left: 65px;
+  padding-right: 65px;
+  margin-bottom: 10px;
+  border: none;
+  font-weight: bold;
+}
