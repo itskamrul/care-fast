@@ -3,9 +3,10 @@ import { Container, Nav, Navbar, Button } from 'react-bootstrap';
 import logo from '../../../images/logo.png';
 import './NavBar.css';
 import { HashLink } from 'react-router-hash-link';
-import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const NavBar = () => {
+  const { users, logOut } = useAuth();
   return (
     <Navbar
       className="navbar-container"
@@ -33,11 +34,17 @@ const NavBar = () => {
           <Nav.Link as={HashLink} to="/about">
             About us
           </Nav.Link>
-          <Nav.Link as={HashLink} to="/login">
-            <Button className="btn button">Login</Button>
-          </Nav.Link>
 
-          <Link>Kamrul Islam</Link>
+          <li>{users?.displayName}</li>
+          {users.email ? (
+            <Button onClick={logOut} className="btn button ms-2">
+              Logout
+            </Button>
+          ) : (
+            <Nav.Link as={HashLink} to="/login">
+              <Button className="btn button ms-2">Login</Button>
+            </Nav.Link>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>

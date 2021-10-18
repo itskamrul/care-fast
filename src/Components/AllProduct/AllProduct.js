@@ -12,7 +12,7 @@ const AllProduct = () => {
       <div>
         <Row xs={1} sm={2} md={3} lg={4} className="g-4 bg-white rounded-3">
           {products.map(product => (
-            <Product product={product}></Product>
+            <Product key={product.id} product={product}></Product>
           ))}
         </Row>
       </div>

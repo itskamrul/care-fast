@@ -19,7 +19,7 @@ const Product = ({ product }) => {
               emptySymbol="far fa-star icon-color"
               fullSymbol="fas fa-star icon-color"
             ></Rating>
-            <Card.Text>Price: {price}</Card.Text>
+            <Card.Text>Price: {price} TK</Card.Text>
             <Link className="btn-regular" to={`/productDetails/${id}`}>
               See details
             </Link>

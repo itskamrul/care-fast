@@ -9,8 +9,6 @@ const ProductDetails = () => {
 
   const displayProduct = products.find(product => product.id == productID);
   const { name, img, value, description, review } = displayProduct;
-  console.log(displayProduct);
-
   return (
     <div>
       <div className=" row container">
