@@ -1,0 +1,16 @@
+.navbar-container {
+  background-color: #32aeb1;
+}
+.logo {
+  height: 50px;
+}
+.navbar-container a {
+  color: #fff;
+  font-weight: bold;
+}
+.button {
+  background-color: #fff;
+  color: #32aeb1;
+  font-weight: bold;
+  border: none;
+}
