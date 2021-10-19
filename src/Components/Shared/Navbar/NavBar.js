@@ -25,11 +25,11 @@ const NavBar = () => {
           <Nav.Link as={HashLink} to="/home">
             Home
           </Nav.Link>
-          <Nav.Link as={HashLink} to="/home#bestSellings">
-            Best Sellings
+          <Nav.Link as={HashLink} to="/allServices">
+            Services
           </Nav.Link>
           <Nav.Link as={HashLink} to="/allProduct">
-            All Product
+            Products
           </Nav.Link>
           <Nav.Link as={HashLink} to="/about">
             About us

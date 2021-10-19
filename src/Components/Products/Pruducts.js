@@ -8,7 +8,7 @@ const Pruducts = () => {
   return (
     <div id="bestSellings" className="container mt-5">
       <div className=" mb-5">
-        <h2 className="fw-bold">Best Sellings Fitness materials</h2>
+        <h2 className="fw-bold">Best Sellings Fitness products</h2>
       </div>
       <div>
         <Row xs={1} sm={2} md={3} lg={4} className="g-4 bg-white rounded-3">

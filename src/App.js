@@ -13,6 +13,9 @@ import Footer from './Components/Shared/Footer/Footer';
 import NotFound from './Components/NotFound/NotFound';
 import AuthProvider from './contexts/AuthProvider';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
+import Services from './Components/Services/Services';
+import ServiceDetails from './Components/ServiceDetails/ServiceDetails';
+import AllServices from './Components/AllServices/AllServices';
 
 function App() {
   return (
@@ -24,18 +27,26 @@ function App() {
             <Route exact path="/">
               <Header></Header>
               <HealthConcerns></HealthConcerns>
+              <Services></Services>
               <Pruducts></Pruducts>
             </Route>
             <Route path="/home">
               <Header></Header>
               <HealthConcerns></HealthConcerns>
+              <Services></Services>
               <Pruducts></Pruducts>
             </Route>
             <PrivateRoute path="/allProduct">
               <AllProduct></AllProduct>
             </PrivateRoute>
+            <PrivateRoute path="/allServices">
+              <AllServices></AllServices>
+            </PrivateRoute>
             <PrivateRoute path="/productDetails/:productID">
               <ProductDetails></ProductDetails>
+            </PrivateRoute>
+            <PrivateRoute path="/ServiceDetails/:serviceID">
+              <ServiceDetails></ServiceDetails>
             </PrivateRoute>
             <Route path="/about">
               <About></About>

@@ -8,7 +8,7 @@ const ProductDetails = () => {
   const { productID } = useParams();
 
   const displayProduct = products.find(product => product.id == productID);
-  const { name, img, value, description, review } = displayProduct;
+  const { name, img, price, value, description, review } = displayProduct;
   return (
     <div>
       <div className=" row container">
@@ -17,6 +17,7 @@ const ProductDetails = () => {
         </div>
         <div className="col-md-6 text-start">
           <h4>{name}</h4>
+          <h5>Price: TK {price}</h5>
           <h6>Review: {review}</h6>
           <Rating
             initialRating={value}
