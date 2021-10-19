@@ -35,8 +35,8 @@ const NavBar = () => {
             About us
           </Nav.Link>
 
-          <li>{users?.displayName}</li>
-          {users.email ? (
+          <li>{users?.displayName ? users.displayName : users?.email}</li>
+          {users?.email ? (
             <Button onClick={logOut} className="btn button ms-2">
               Logout
             </Button>

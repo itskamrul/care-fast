@@ -4,9 +4,10 @@ import {
   GoogleAuthProvider,
   signOut,
   onAuthStateChanged,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
 } from 'firebase/auth';
 import { useEffect, useState } from 'react';
-// import initializeAuthentication from '../Pages/Login/Firebase/firebase.init';
 import initializeAuthentication from '../Components/Firebase/firebase.init';
 
 initializeAuthentication();
@@ -14,6 +15,8 @@ initializeAuthentication();
 const useFirebase = () => {
   const [users, setUsers] = useState({});
   const [isLoding, setIsLoding] = useState(true);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const auth = getAuth();
 
@@ -50,11 +53,35 @@ const useFirebase = () => {
       });
   };
 
+  const getEmail = email => {
+    setEmail(email);
+  };
+  const getPassword = password => {
+    setPassword(password);
+  };
+
+  const registerWithEmail = () => {
+    createUserWithEmailAndPassword(auth, email, password).then(result => {
+      setUsers(result.users);
+      window.location.reload();
+    });
+  };
+  const signInWithEmail = () => {
+    signInWithEmailAndPassword(auth, email, password).then(result => {
+      setUsers(result.users);
+      window.location.reload();
+    });
+  };
+
   return {
     users,
     isLoding,
     signUsingGoogle,
     logOut,
+    getEmail,
+    getPassword,
+    registerWithEmail,
+    signInWithEmail,
   };
 };
 
