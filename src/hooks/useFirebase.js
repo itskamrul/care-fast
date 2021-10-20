@@ -17,6 +17,7 @@ const useFirebase = () => {
   const [isLoding, setIsLoding] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const auth = getAuth();
 
@@ -61,22 +62,31 @@ const useFirebase = () => {
   };
 
   const registerWithEmail = () => {
-    createUserWithEmailAndPassword(auth, email, password).then(result => {
-      setUsers(result.users);
-      window.location.reload();
-    });
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(result => {
+        setUsers(result.users);
+        window.location.reload();
+      })
+      .catch(error => {
+        setError(error.message);
+      });
   };
   const signInWithEmail = () => {
-    signInWithEmailAndPassword(auth, email, password).then(result => {
-      setUsers(result.users);
-      window.location.reload();
-    });
+    signInWithEmailAndPassword(auth, email, password)
+      .then(result => {
+        setUsers(result.users);
+        window.location.reload();
+      })
+      .catch(error => {
+        setError(error.message);
+      });
   };
 
   return {
     users,
     isLoding,
     signUsingGoogle,
+    error,
     logOut,
     getEmail,
     getPassword,
