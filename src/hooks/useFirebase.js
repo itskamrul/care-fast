@@ -22,15 +22,9 @@ const useFirebase = () => {
   const auth = getAuth();
 
   const signUsingGoogle = () => {
-    setIsLoding(false);
+    setIsLoding(true);
     const googleProvider = new GoogleAuthProvider();
-    signInWithPopup(auth, googleProvider)
-      .then(result => {
-        setUsers(result.user);
-      })
-      .finally(() => {
-        setIsLoding(false);
-      });
+    return signInWithPopup(auth, googleProvider);
   };
 
   useEffect(() => {
@@ -62,24 +56,10 @@ const useFirebase = () => {
   };
 
   const registerWithEmail = () => {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(result => {
-        setUsers(result.users);
-        window.location.reload();
-      })
-      .catch(error => {
-        setError(error.message);
-      });
+    return createUserWithEmailAndPassword(auth, email, password);
   };
   const signInWithEmail = () => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then(result => {
-        setUsers(result.users);
-        window.location.reload();
-      })
-      .catch(error => {
-        setError(error.message);
-      });
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   return {
@@ -87,11 +67,14 @@ const useFirebase = () => {
     isLoding,
     signUsingGoogle,
     error,
+    setError,
     logOut,
     getEmail,
     getPassword,
     registerWithEmail,
     signInWithEmail,
+    setUsers,
+    setIsLoding,
   };
 };
 

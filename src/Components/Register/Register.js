@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const Register = () => {
-  const { signUsingGoogle, registerWithEmail, getEmail, getPassword, error } =
-    useAuth();
+  const {
+    signUsingGoogle,
+    registerWithEmail,
+    getEmail,
+    getPassword,
+    setError,
+    error,
+    setUsers,
+  } = useAuth();
+  const history = useHistory();
+  const location = useLocation();
+  const redirect_url = location.state?.from || '/home';
 
   const handleEmail = e => {
     const email = e.target.value;
@@ -14,6 +24,16 @@ const Register = () => {
   const handlePassword = e => {
     const password = e.target.value;
     getPassword(password);
+  };
+  const handleRegisterWithEmail = () => {
+    registerWithEmail()
+      .then(result => {
+        setUsers(result.user);
+        history.push(redirect_url);
+      })
+      .catch(error => {
+        setError(error.message);
+      });
   };
   return (
     <div className="container">
@@ -42,7 +62,7 @@ const Register = () => {
               required
             />
           </div>
-          <Button onClick={registerWithEmail} className="login-btn">
+          <Button onClick={handleRegisterWithEmail} className="login-btn">
             Get Started
           </Button>
           <p>
