@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Row } from 'react-bootstrap';
 import useProduct from '../../hooks/useProduct';
 import Product from '../Product/Product';
 
 const AllProduct = () => {
+  useEffect(() => {
+    document.title = 'Products -CareFast';
+  }, []);
+
   const products = useProduct();
   return (
     <div className="container">

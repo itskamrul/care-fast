@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
@@ -13,6 +13,11 @@ const Register = () => {
     error,
     setUsers,
   } = useAuth();
+
+  useEffect(() => {
+    document.title = 'Register -CareFast';
+  }, []);
+
   const history = useHistory();
   const location = useLocation();
   const redirect_url = location.state?.from || '/home';

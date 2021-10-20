@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const About = () => {
+  useEffect(() => {
+    document.title = 'About -CareFast';
+  }, []);
+
   return (
     <div className="container mt-5">
       <h1>About us</h1>

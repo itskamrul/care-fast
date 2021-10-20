@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Row } from 'react-bootstrap';
 import useServices from '../../hooks/useServices';
 import Service from '../Service/Service';
 
 const AllServices = () => {
+  useEffect(() => {
+    document.title = 'Services -CareFast';
+  }, []);
+
   const services = useServices();
   return (
     <div className="container">

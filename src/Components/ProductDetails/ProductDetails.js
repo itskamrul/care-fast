@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Rating from 'react-rating';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import products from '../../Utilitis/fakedata';
 
 const ProductDetails = () => {
+  useEffect(() => {
+    document.title = 'Product details -CareFast';
+  }, []);
+
   const { productID } = useParams();
 
   const displayProduct = products.find(product => product.id == productID);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Carousel } from 'react-bootstrap';
 import banner1 from '../../../images/banner/banner1.jpg';
 import banner2 from '../../../images/banner/banner2.jpg';
@@ -8,6 +8,10 @@ import banner5 from '../../../images/banner/banner5.jpg';
 import banner6 from '../../../images/banner/banner6.jpg';
 
 const Header = () => {
+  useEffect(() => {
+    document.title = 'Home -CareFast';
+  }, []);
+
   return (
     <div>
       <Carousel>

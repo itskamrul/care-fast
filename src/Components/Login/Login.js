@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
@@ -14,6 +15,10 @@ const Login = () => {
     setUsers,
     setIsLoding,
   } = useAuth();
+
+  useEffect(() => {
+    document.title = 'Login -CareFast';
+  }, []);
 
   const history = useHistory();
   const location = useLocation();

@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import healthData from '../../Utilitis/healthData';
 
 const ServiceDetails = () => {
+  useEffect(() => {
+    document.title = 'Service details - CareFast';
+  }, []);
+
   const { serviceID } = useParams();
 
   const displayService = healthData.find(service => service.id == serviceID);
